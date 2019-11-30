@@ -83,6 +83,7 @@ public class UserRegistration {
                 .then()
                 .statusCode(200)
                 .body("id", Matchers.not(Matchers.isEmptyString()));
+
     }
 
     @Test
