@@ -82,6 +82,7 @@ public class UserRegistration {
                 .shouldHave(new StatusCodeCondition(200))
                 .shouldHave(Conditions.bodyField("id", not(isEmptyString())));
 
+
     }
 
     @Test
