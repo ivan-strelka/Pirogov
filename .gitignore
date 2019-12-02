@@ -2,3 +2,8 @@
 target
 out
 *.iml
+.allure/
+allure-results
+allure-report
+/api/.allure/
+/allure-report/

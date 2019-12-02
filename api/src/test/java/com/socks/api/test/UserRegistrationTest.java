@@ -1,25 +1,21 @@
+package com.socks.api.test;
+
 import com.socks.api.conditions.Conditions;
 import com.socks.api.conditions.StatusCodeCondition;
 import com.socks.api.payload.PayLoadUserRegistration;
 import com.socks.api.sevices.UserApiServices;
-import io.restassured.RestAssured;
+import com.socks.api.test.setting.BaseClass;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.isEmptyString;
 import static org.hamcrest.Matchers.not;
 
 @Slf4j
-public class UserRegistration {
+public class UserRegistrationTest extends BaseClass {
 
     private final UserApiServices userApiServices = new UserApiServices();
-
-    @BeforeAll
-    static void setUp() {
-        RestAssured.baseURI = "http://157.245.169.246";
-    }
 
 
     @Test

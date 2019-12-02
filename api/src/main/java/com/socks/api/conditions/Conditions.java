@@ -1,5 +1,6 @@
 package com.socks.api.conditions;
 
+import io.qameta.allure.Step;
 import lombok.experimental.UtilityClass;
 import org.hamcrest.Matcher;
 
@@ -9,6 +10,7 @@ public class Conditions {
         return new StatusCodeCondition(statusCode);
     }
 
+    @Step
     public static BodyFieldConditions bodyField(String jsonPath, Matcher matcher) {
         return new BodyFieldConditions(jsonPath, matcher);
     }
