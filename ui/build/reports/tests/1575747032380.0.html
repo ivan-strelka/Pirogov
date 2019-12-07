@@ -1,0 +1,720 @@
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WeaveSocks Demo App">
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="keywords" content="">
+
+    <title>
+        WeaveSocks
+    </title>
+
+    <meta name="keywords" content="">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100" rel="stylesheet" type="text/css">
+
+    <!-- styles -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <script src="js/respond.min.js"></script>
+
+    <link rel="shortcut icon" href="favicon.png">
+
+
+</head>
+
+<body style="">
+
+<div id="topbar"><!-- *** TOPBAR ***
+_________________________________________________________ -->
+<div id="top">
+    <div class="container">
+        <div class="col-md-6 offer" data-animate="fadeInDown">
+            <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a> <a href="#">Buy
+            1000 socks, get a shoe for free!</a>
+        </div>
+        <div class="col-md-6" data-animate="fadeInDown">
+            <ul class="menu">
+                
+                <li id="howdy" style="display: inline-block; opacity: 0.452946;"><a href="#">Logged in as  </a></li>
+                <li id="logout" style="display: inline-block; opacity: 0.452946;"><a href="index.html" onclick="logout()">Logout</a></li>
+                
+                <!--<li><a href="contact.html">Contact</a></li>-->
+                <!--<li><a href="#">Recently viewed</a></li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="Login">Customer login</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div id="login-message"> </div>
+
+                    <form action="index.html" method="get">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" id="username-modal" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password-modal" placeholder="password">
+                        </div>
+
+                        <p class="text-center">
+                            <button class="btn btn-primary" href="#" onclick="return login()"><i class="fa fa-sign-in"></i> Log in
+                            </button>
+                        </p>
+
+                    </form>
+
+                    <!--<p class="text-center text-muted">Not registered yet?</p>-->
+                    <!--<p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="Login">Register</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div id="registration-message"> </div>
+
+                    <form action="index.html" method="get">
+
+                        <div class="form-group">
+                            <label for="name">Username</label>
+                            <input type="text" class="form-control" name="username" id="register-username-modal" placeholder="username" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name">First name</label>
+                            <input type="text" class="form-control" name="first-name" id="register-first-modal" placeholder="first name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last name</label>
+                            <input type="text" class="form-control" name="last-name" id="register-last-modal" placeholder="last name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" id="register-email-modal" placeholder="email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="register-password-modal" required="">
+                        </div>
+                        <p class="text-center">
+                            <button class="btn btn-primary" href="#" onclick="return register()"><i class="fa fa-sign-in"></i> Register
+                            </button>
+                        </p>
+
+                    </form>
+
+                    <!--<p class="text-center text-muted">Not registered yet?</p>-->
+                    <!--<p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- *** TOP BAR END *** -->
+
+<script>
+
+    $(document).ready(function () {
+        $.ajaxSetup({
+            contentType: "application/json; charset=utf-8"
+        });
+
+        if ($.cookie('logged_in') != null && $.cookie('logged_in') != "") {
+
+            username($.cookie('logged_in'), function (username) {
+                if (typeof username !== 'undefined') {
+                    $("#login").remove();
+                    $("#register").remove();
+                    $("#howdy").append('<a href="#">Logged in as ' + username + '<\/a>').hide().fadeIn(200);
+                    $("#logout").hide().fadeIn(200);
+                } else {
+                    $("#howdy").remove()
+                    $("#logout").remove()
+                }
+            });
+        } else {
+            $("#howdy").remove()
+            $("#logout").remove()
+        }
+
+    })
+</script>
+</div>
+<div id="navbar"><!-- *** NAVBAR ***
+_________________________________________________________ -->
+
+<div class="navbar navbar-default yamm" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+
+            <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
+                <img src="img/logo.png" alt="WeaveSocks logo" class="hidden-xs">
+                <img src="img/logo-small.png" alt="WeaveSocks logo" class="visible-xs"><span class="sr-only">WeaveSocks - go to homepage</span>
+            </a>
+        </div>
+        <!--/.navbar-header -->
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-left">
+                <li id="tabIndex" class="active"><a href="index.html">Home</a>
+                </li>
+                <li id="tabCatalogue" class="dropdown yamm-fw">
+                    <a href="category.html" class="dropdown-toggle">Catalogue <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h5>Colours</h5>
+                                        <ul>
+                                            <li>
+                                                <a href="category.html?tags=blue">Blue</a>
+                                            </li>
+                                            <li>
+                                                <a href="category.html?tags=brown">Brown</a>
+                                            </li>
+                                            <li>
+                                                <a href="category.html?tags=green">Green</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5>Size</h5>
+                                        <ul>
+                                            <li>
+                                                <a href="category.html?tags=large">Large</a>
+                                            </li>
+                                            <li>
+                                                <a href="category.html?tags=short">Short</a>
+                                            </li>
+                                        </ul>
+                                        <h5>Function</h5>
+                                        <ul>
+                                            <li>
+                                                <a href="category.html?tags=toes">Toes</a>
+                                            </li>
+                                            <li>
+                                                <a href="category.html?tags=magic">Magic</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h5>Featured</h5>
+                                        <ul>
+                                            <li><a href="category.html?tags=formal">Formal</a>
+                                            </li>
+                                            <li><a href="category.html?tags=smelly">Smelly</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.yamm-content -->
+                        </li>
+                    </ul>
+                </li>
+                <li id="tabAccount"><a href="customer-orders.html">Account</a>
+                </li>
+                <!--<li class="dropdown yamm-fw">-->
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>-->
+                <!--<ul class="dropdown-menu">-->
+                <!--<li>-->
+                <!--<div class="yamm-content">-->
+                <!--<div class="row">-->
+                <!--<div class="col-sm-3">-->
+                <!--<h5>Shop</h5>-->
+                <!--<ul>-->
+                <!--<li><a href="index.html">Homepage</a>-->
+                <!--</li>-->
+                <!--<li><a href="category.html">Category - sidebar left</a>-->
+                <!--</li>-->
+                <!--<li><a href="category-right.html">Category - sidebar right</a>-->
+                <!--</li>-->
+                <!--<li><a href="category-full.html">Category - full width</a>-->
+                <!--</li>-->
+                <!--<li><a href="detail.html">Product detail</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="col-sm-3">-->
+                <!--<h5>User</h5>-->
+                <!--<ul>-->
+                <!--<li><a href="register.html">Register / login</a>-->
+                <!--</li>-->
+                <!--<li><a href="customer-orders.html">Orders history</a>-->
+                <!--</li>-->
+                <!--<li><a href="customer-order.html">Order history detail</a>-->
+                <!--</li>-->
+                <!--<li><a href="customer-wishlist.html">Wishlist</a>-->
+                <!--</li>-->
+                <!--<li><a href="customer-account.html">Customer account / change password</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="col-sm-3">-->
+                <!--<h5>Order process</h5>-->
+                <!--<ul>-->
+                <!--<li><a href="basket.html">Shopping cart</a>-->
+                <!--</li>-->
+                <!--<li><a href="checkout1.html">Checkout - step 1</a>-->
+                <!--</li>-->
+                <!--<li><a href="checkout2.html">Checkout - step 2</a>-->
+                <!--</li>-->
+                <!--<li><a href="checkout3.html">Checkout - step 3</a>-->
+                <!--</li>-->
+                <!--<li><a href="checkout4.html">Checkout - step 4</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="col-sm-3">-->
+                <!--<h5>Pages and blog</h5>-->
+                <!--<ul>-->
+                <!--<li><a href="blog.html">Blog listing</a>-->
+                <!--</li>-->
+                <!--<li><a href="post.html">Blog Post</a>-->
+                <!--</li>-->
+                <!--<li><a href="faq.html">FAQ</a>-->
+                <!--</li>-->
+                <!--<li><a href="text.html">Text page</a>-->
+                <!--</li>-->
+                <!--<li><a href="text-right.html">Text page - right sidebar</a>-->
+                <!--</li>-->
+                <!--<li><a href="404.html">404 page</a>-->
+                <!--</li>-->
+                <!--<li><a href="contact.html">Contact</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.yamm-content &ndash;&gt;-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            </ul>
+
+        </div>
+        <!--/.nav-collapse -->
+
+        <div class="navbar-buttons">
+
+            <div class="navbar-collapse collapse right" id="basket-overview">
+                <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm" id="numItemsInCart">0 items in cart</span></a>
+            </div>
+            <!--/.nav-collapse -->
+
+            <!--<div class="navbar-collapse collapse right" id="search-not-mobile">-->
+            <!--<button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">-->
+            <!--<span class="sr-only">Toggle search</span>-->
+            <!--<i class="fa fa-search"></i>-->
+            <!--</button>-->
+            <!--</div>-->
+
+        </div>
+
+        <!--<div class="collapse clearfix" id="search">-->
+
+        <!--<form class="navbar-form" role="search">-->
+        <!--<div class="input-group">-->
+        <!--<input type="text" class="form-control" placeholder="Search">-->
+        <!--<span class="input-group-btn">-->
+
+        <!--<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>-->
+
+        <!--</span>-->
+        <!--</div>-->
+        <!--</form>-->
+
+        <!--</div>-->
+
+        <!--/.nav-collapse -->
+
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /#navbar -->
+
+<!-- *** NAVBAR END *** -->
+
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            contentType: "application/json; charset=utf-8"
+        });
+
+        if ($.cookie('logged_in') == null || $.cookie('logged_in') == "") {
+            $("#tabAccount").remove()
+        }
+
+        $.getJSON('/cart', {}, function (data) {
+            if (data != null) {
+                var numItemsInCart = 0;
+                $.each(data, function (index, element) {
+                    if (element != null && element.itemId != null && element.itemId != "null") {
+                        $.getJSON('/catalogue/' + element.itemId, function (data) {
+                            numItemsInCart = numItemsInCart + element.quantity;
+                        }).always(function () {
+                            $('#numItemsInCart').text(numItemsInCart + ' item(s) in cart');
+                        });
+                    }
+                });
+            }
+        }).error(function () {
+            $('#basket-overview').remove();
+        });
+
+        //Add Hover effect to menus
+        jQuery('ul.nav li.dropdown').hover(function () {
+            jQuery(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn();
+        }, function () {
+            jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
+        });
+
+        // Set active tabs
+        if (window.location.toString().indexOf("category.html") > -1) {
+            $('#tabCatalogue').addClass("active");
+        } else if (window.location.toString().indexOf("customer-") > -1) {
+            $('#tabAccount').addClass("active");
+        } else {
+            $('#tabIndex').addClass("active");
+        }
+    });
+</script>
+</div>
+
+<div id="all">
+
+    <div id="content">
+
+        <div class="container">
+            <div class="col-md-12">
+                <div id="main-slider" class="owl-carousel owl-theme" style="display: block; opacity: 1;">
+                    <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 4128px; left: 0px; display: block;"><div class="owl-item" style="width: 688px;"><div class="item">
+                        <a href="detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b">
+                            <img class="img-responsive" src="img/colourful_socks_banner.jpg" alt="">
+                        </a>
+                    </div></div><div class="owl-item" style="width: 688px;"><div class="item">
+                        <a href="detail.html?id=zzz4f044-b040-410d-8ead-4de0446aec7e">
+                            <img class="img-responsive" src="img/rugby_socks_banner.jpg" alt="">
+                        </a>
+                    </div></div><div class="owl-item" style="width: 688px;"><div class="item">
+                        <a href="detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b">
+                            <img class="img-responsive" src="img/holy_socks_banner.jpg" alt="">
+                        </a>
+                    </div></div></div></div>
+                    
+                    
+                <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev">prev</div><div class="owl-next">next</div></div></div></div>
+                <!-- /#main-slider -->
+            </div>
+        </div>
+
+        <!-- *** ADVANTAGES HOMEPAGE ***
+_________________________________________________________ -->
+        <div id="advantages">
+
+            <div class="container">
+                <div class="same-height-row">
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable" style="height: 274px;">
+                            <div class="icon"><i class="fa fa-heart"></i>
+                            </div>
+
+                            <h3><a href="#">We love socks!</a></h3>
+                            <p>Fun fact: Socks were invented by woolly mammoths
+                                to keep warm. They died out because stupid
+                                humans had to cut their legs off to get their
+                                socks.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable" style="height: 274px;">
+                            <div class="icon"><i class="fa fa-tags"></i>
+                            </div>
+
+                            <h3><a href="#">Best prices</a></h3>
+                            <p>We price check our socks with trained monkeys
+                                back at the office.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable" style="height: 274px;">
+                            <div class="icon"><i class="fa fa-thumbs-up"></i>
+                            </div>
+
+                            <h3><a href="#">100% satisfaction guaranteed</a>
+                            </h3>
+                            <p>Free returns on most items. Hamsters are
+                                non-returnable once spoken to.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /#advantages -->
+
+        <!-- *** ADVANTAGES END *** -->
+
+        <!-- *** HOT PRODUCT SLIDESHOW ***
+_________________________________________________________ -->
+        <div id="hot">
+
+            <div class="box">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h2>Hot this week</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="product-slider owl-carousel owl-theme" id="hot-slider" style="display: block; opacity: 1;">
+                <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 3600px; left: 0px; display: block;"><div class="owl-item" style="width: 360px;"><div class="item" style="visibility: visible;">                            <div class="product">                                <div class="flip-container">                                    <div class="flipper">                                        <div class="front">                                            <a href="detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b">                                            <img src="/catalogue/images/holy_1.jpeg" alt="" class="img-responsive">                                        </a>                                    </div>                                    <div class="back">                                        <a href="detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b">                                            <img src="/catalogue/images/holy_2.jpeg" alt="" class="img-responsive">                                        </a>                                    </div>                                </div>                            </div>                            <a href="detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b" class="invisible">                                <img src="/catalogue/images/holy_1.jpeg" alt="" class="img-responsive">                            </a>                            <div class="text">                                <h3><a href="detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b">Holy</a></h3>                                <p class="price">$99.99</p>                            </div>                        </div>                    </div></div><div class="owl-item" style="width: 360px;"><div class="item" style="visibility: visible;">                            <div class="product">                                <div class="flip-container">                                    <div class="flipper">                                        <div class="front">                                            <a href="detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b">                                            <img src="/catalogue/images/colourful_socks.jpg" alt="" class="img-responsive">                                        </a>                                    </div>                                    <div class="back">                                        <a href="detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b">                                            <img src="/catalogue/images/colourful_socks.jpg" alt="" class="img-responsive">                                        </a>                                    </div>                                </div>                            </div>                            <a href="detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b" class="invisible">                                <img src="/catalogue/images/colourful_socks.jpg" alt="" class="img-responsive">                            </a>                            <div class="text">                                <h3><a href="detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b">Colourful</a></h3>                                <p class="price">$18</p>                            </div>                        </div>                    </div></div><div class="owl-item" style="width: 360px;"><div class="item" style="visibility: visible;">                            <div class="product">                                <div class="flip-container">                                    <div class="flipper">                                        <div class="front">                                            <a href="detail.html?id=510a0d7e-8e83-4193-b483-e27e09ddc34d">                                            <img src="/catalogue/images/puma_1.jpeg" alt="" class="img-responsive">                                        </a>                                    </div>                                    <div class="back">                                        <a href="detail.html?id=510a0d7e-8e83-4193-b483-e27e09ddc34d">                                            <img src="/catalogue/images/puma_2.jpeg" alt="" class="img-responsive">                                        </a>                                    </div>                                </div>                            </div>                            <a href="detail.html?id=510a0d7e-8e83-4193-b483-e27e09ddc34d" class="invisible">                                <img src="/catalogue/images/puma_1.jpeg" alt="" class="img-responsive">                            </a>                            <div class="text">                                <h3><a href="detail.html?id=510a0d7e-8e83-4193-b483-e27e09ddc34d">SuperSport XL</a></h3>                                <p class="price">$15</p>                            </div>                        </div>                    </div></div><div class="owl-item" style="width: 360px;"><div class="item" style="visibility: visible;">                            <div class="product">                                <div class="flip-container">                                    <div class="flipper">                                        <div class="front">                                            <a href="detail.html?id=808a2de1-1aaa-4c25-a9b9-6612e8f29a38">                                            <img src="/catalogue/images/cross_1.jpeg" alt="" class="img-responsive">                                        </a>                                    </div>                                    <div class="back">                                        <a href="detail.html?id=808a2de1-1aaa-4c25-a9b9-6612e8f29a38">                                            <img src="/catalogue/images/cross_2.jpeg" alt="" class="img-responsive">                                        </a>                                    </div>                                </div>                            </div>                            <a href="detail.html?id=808a2de1-1aaa-4c25-a9b9-6612e8f29a38" class="invisible">                                <img src="/catalogue/images/cross_1.jpeg" alt="" class="img-responsive">                            </a>                            <div class="text">                                <h3><a href="detail.html?id=808a2de1-1aaa-4c25-a9b9-6612e8f29a38">Crossed</a></h3>                                <p class="price">$17.32</p>                            </div>                        </div>                    </div></div><div class="owl-item" style="width: 360px;"><div class="item" style="visibility: visible;">                            <div class="product">                                <div class="flip-container">                                    <div class="flipper">                                        <div class="front">                                            <a href="detail.html?id=819e1fbf-8b7e-4f6d-811f-693534916a8b">                                            <img src="/catalogue/images/WAT.jpg" alt="" class="img-responsive">                                        </a>                                    </div>                                    <div class="back">                                        <a href="detail.html?id=819e1fbf-8b7e-4f6d-811f-693534916a8b">                                            <img src="/catalogue/images/WAT2.jpg" alt="" class="img-responsive">                                        </a>                                    </div>                                </div>                            </div>                            <a href="detail.html?id=819e1fbf-8b7e-4f6d-811f-693534916a8b" class="invisible">                                <img src="/catalogue/images/WAT.jpg" alt="" class="img-responsive">                            </a>                            <div class="text">                                <h3><a href="detail.html?id=819e1fbf-8b7e-4f6d-811f-693534916a8b">Figueroa</a></h3>                                <p class="price">$14</p>                            </div>                        </div>                    </div></div></div></div><div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev">prev</div><div class="owl-next">next</div></div></div></div>
+                <!-- /.product-slider -->
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /#hot -->
+
+        <!-- *** HOT END *** -->
+
+    </div>
+    <!-- /#content -->
+
+    <div id="footer"><!-- *** FOOTER ***
+_________________________________________________________ -->
+<div id="footer" data-animate="fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <h4>Pages</h4>
+
+                <ul>
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li><a href="category.html">Catalogue</a>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h4>User section</h4>
+
+                <ul>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                    </li>
+                    <li><a href="basket.html">Cart</a>
+                    </li>
+                    <li><a href="customer-orders.html">Orders</a>
+                    </li>
+                </ul>
+
+                <hr class="hidden-md hidden-lg hidden-sm">
+
+            </div>
+            <!-- /.col-md-3 -->
+
+            <div class="col-md-3 col-sm-6">
+
+                <h4>Top categories</h4>
+
+                <ul>
+                    <li><a href="category.html?tags=magic">Magic</a>
+                    </li>
+                    <li><a href="category.html?tags=sport">Sport</a>
+                    </li>
+                    <li><a href="category.html?tags=action">Action</a>
+                    </li>
+                </ul>
+
+                <hr class="hidden-md hidden-lg">
+
+            </div>
+            <!-- /.col-md-3 -->
+
+            <div class="col-md-3 col-sm-6">
+
+                <h4>Where to find us</h4>
+
+                <p><strong>Weaveworks Ltd.</strong>
+                    <br>32 – 38 Scrutton Street
+                    <br>London
+                    <br>EC2A 4RQ
+                    <br>UK
+                </p>
+
+                <hr class="hidden-md hidden-lg">
+
+            </div>
+            <!-- /.col-md-3 -->
+
+
+            <div class="col-md-3 col-sm-6">
+
+                <h4>Stay in touch</h4>
+
+                <p class="social">
+                    <a href="https://twitter.com/weaveworks" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
+                    <a href="mailto:help@weave.works" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                </p>
+
+
+            </div>
+            <!-- /.col-md-3 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /#footer -->
+
+<!-- *** FOOTER END *** -->
+
+
+<!-- *** COPYRIGHT ***
+_________________________________________________________ -->
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-6">
+            <p class="pull-left">© 2016 <a href="http://weave.works">Weaveworks</a></p>
+
+        </div>
+        <div class="col-md-6">
+            <p class="pull-right">Template courtesy of <a href="http://bootstrapious.com/e-commerce-templates">Bootstrapious</a>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- *** COPYRIGHT END *** -->
+</div>
+
+</div>
+<!-- /#all -->
+
+
+<!-- *** SCRIPTS TO INCLUDE ***
+_________________________________________________________ -->
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/js.cookie.js"></script>
+<script src="js/client.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/bootstrap-hover-dropdown.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/front.js"></script>
+<script src="js/jquery.query-object.js"></script>
+<script src="js/client.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $.ajaxSetup({
+            contentType: "application/json; charset=utf-8"
+        });
+
+        console.log("Loading components for index.html");
+        $("#topbar").load("topbar.html");
+        $("#navbar").load("navbar.html");
+        $("#footer").load("footer.html");
+
+        $.getJSON('/catalogue', {size: 5}, function (data) {
+            if (data != null) {
+                $.each(data, function (index, element) {
+                    $('#hot-slider').append(
+                            '<div class="item">\
+                            <div class="product">\
+                                <div class="flip-container">\
+                                    <div class="flipper">\
+                                        <div class="front">\
+                                            <a href="detail.html?id=' + element.id + '">\
+                                            <img src="' + element.imageUrl[0] + '" alt="" class="img-responsive">\
+                                        </a>\
+                                    </div>\
+                                    <div class="back">\
+                                        <a href="detail.html?id=' + element.id + '">\
+                                            <img src="' + element.imageUrl[1] + '" alt="" class="img-responsive">\
+                                        </a>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                            <a href="detail.html?id=' + element.id + '" class="invisible">\
+                                <img src="' + element.imageUrl[0] + '" alt="" class="img-responsive">\
+                            </a>\
+                            <div class="text">\
+                                <h3><a href="detail.html?id=' + element.id + '">' + element.name + '</a></h3>\
+                                <p class="price">$' + element.price + '</p>\
+                            </div>\
+                        </div>\
+                    </div>'
+                    );
+                });
+                $('.product-slider').owlCarousel({
+                    navigation: true, // Show next and prev buttons
+                    slideSpeed: 300,
+                    paginationSpeed: 400,
+                    afterInit: function () {
+                        $('.product-slider .item').css('visibility', 'visible');
+                    }
+                });
+
+                $('#main-slider').owlCarousel({
+                    navigation: true, // Show next and prev buttons
+                    slideSpeed: 300,
+                    paginationSpeed: 400,
+                    autoPlay: true,
+                    stopOnHover: true,
+                    singleItem: true,
+                    afterInit: ''
+                });
+
+            }
+        });
+    })
+</script>
+
+
+
+</body></html>
