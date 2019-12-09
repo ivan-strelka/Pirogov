@@ -15,11 +15,14 @@ public class MainPage {
     }
 
     public void loginAs(String username, String password) {
-
         $("#login > a").click();
         $("#username-modal").setValue(username);
         $("#password-modal").setValue(password);
         $(By.xpath("//button[contains(text(),'Log in')]")).click();
 
     }
+
+
+
+
 }
