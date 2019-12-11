@@ -1,23 +1,24 @@
+import com.socks.api.conditions.Conditions;
+import com.socks.api.conditions.StatusCodeCondition;
 import com.socks.api.payload.PayLoadUserRegistration;
+import com.socks.api.sevices.UserApiServices;
 import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.Matchers.isEmptyString;
+import static org.hamcrest.Matchers.not;
+
 @Slf4j
 public class UserRegistration {
+
+    private final UserApiServices userApiServices = new UserApiServices();
+
     @BeforeAll
     static void setUp() {
-
         RestAssured.baseURI = "http://157.245.169.246";
-
     }
 
 
@@ -28,9 +29,9 @@ public class UserRegistration {
         payLoadUser.setPassword(RandomStringUtils.randomAlphanumeric(5));
         payLoadUser.setEmail(RandomStringUtils.randomAlphabetic(10) + "@gmail.com");
 
-        registerNewUser(payLoadUser)
-                .then()
-                .body("id", Matchers.not(Matchers.isEmptyString()));
+        userApiServices.registerNewUser(payLoadUser)
+                .shouldHave(Conditions.statusCode(200))
+                .shouldHave(Conditions.bodyField("id", not(isEmptyString())));
     }
 
     @Test
@@ -40,9 +41,8 @@ public class UserRegistration {
         payLoadUser.setPassword(RandomStringUtils.randomAlphanumeric(5));
         payLoadUser.setEmail(RandomStringUtils.randomAlphabetic(10) + "@gmail.com");
 
-        registerNewUser(payLoadUser)
-                .then()
-                .statusCode(500);
+        userApiServices.registerNewUser(payLoadUser)
+                .shouldHave(new StatusCodeCondition(500));
     }
 
     @Test
@@ -52,10 +52,9 @@ public class UserRegistration {
         payLoadUser.setPassword(RandomStringUtils.randomAlphanumeric(5));
         payLoadUser.setEmail(RandomStringUtils.randomAlphabetic(10) + " @gmail.com");
 
-        registerNewUser(payLoadUser)
-                .then()
-                .statusCode(200)
-                .body("id", Matchers.not(Matchers.isEmptyString()));
+        userApiServices.registerNewUser(payLoadUser)
+                .shouldHave(new StatusCodeCondition(200))
+                .shouldHave(Conditions.bodyField("id", not(isEmptyString())));
 
     }
 
@@ -66,10 +65,10 @@ public class UserRegistration {
         payLoadUser.setPassword(RandomStringUtils.randomAlphanumeric(0));
         payLoadUser.setEmail(RandomStringUtils.randomAlphabetic(10) + "@gmail.com");
 
-        registerNewUser(payLoadUser)
-                .then()
-                .statusCode(200)
-                .body("id", Matchers.not(Matchers.isEmptyString()));
+        userApiServices.registerNewUser(payLoadUser)
+                .shouldHave(new StatusCodeCondition(200))
+                .shouldHave(Conditions.bodyField("id", not(isEmptyString())));
+
     }
 
     @Test
@@ -79,10 +78,11 @@ public class UserRegistration {
         payLoadUser.setPassword(RandomStringUtils.randomAlphanumeric(9));
         payLoadUser.setEmail(RandomStringUtils.randomAlphabetic(0));
 
-        registerNewUser(payLoadUser)
-                .then()
-                .statusCode(200)
-                .body("id", Matchers.not(Matchers.isEmptyString()));
+        userApiServices.registerNewUser(payLoadUser)
+                .shouldHave(new StatusCodeCondition(200))
+                .shouldHave(Conditions.bodyField("id", not(isEmptyString())));
+
+
     }
 
     @Test
@@ -92,30 +92,15 @@ public class UserRegistration {
         payLoadUser.setPassword(RandomStringUtils.randomAlphanumeric(9));
         payLoadUser.setEmail(RandomStringUtils.randomAlphabetic(6) + "@gmail.com");
 
-        registerNewUser(payLoadUser)
-                .then()
-                .statusCode(200)
-                .body("id", Matchers.not(Matchers.isEmptyString()));
+        userApiServices.registerNewUser(payLoadUser)
+                .shouldHave(new StatusCodeCondition(200))
+                .shouldHave(Conditions.bodyField("id", not(isEmptyString())));
 
-        registerNewUser(payLoadUser)
-                .then()
-                .statusCode(500);
+
+        userApiServices.registerNewUser(payLoadUser)
+                .shouldHave(new StatusCodeCondition(500));
 
     }
 
-    private RequestSpecification settings() {
-        return RestAssured
-                .given()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.TEXT)
-                .filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-    }
-
-    private Response registerNewUser(PayLoadUserRegistration payLoadUser) {
-        return settings()
-                .body(payLoadUser)
-                .when()
-                .post("/register");
-    }
 
 }
