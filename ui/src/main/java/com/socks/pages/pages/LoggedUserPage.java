@@ -38,9 +38,16 @@ public class LoggedUserPage {
         return $("#password-modal");
     }
 
-    public SelenideElement customerLogin(){
+    public SelenideElement customerLogin() {
         return $("#Login");
+    }
 
+    public SelenideElement alertRegistration (){
+        return $("#registration-message > div");
+    }
+
+    public SelenideElement titleRigister (){
+        return $(By.xpath("//h4[contains(text(),'Register')]"));
     }
 
 
