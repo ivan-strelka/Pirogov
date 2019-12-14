@@ -16,7 +16,7 @@ public class MainPage {
     }
 
     public void loginAs(String username, String password) {
-        $("#login > a").click();
+        $("#login").click();
         $("#username-modal").setValue(username);
         $("#password-modal").setValue(password);
         $(By.xpath("//button[contains(text(),'Log in')]")).click();
@@ -24,7 +24,7 @@ public class MainPage {
     }
 
     public void registerAsParticularParam(String Username, String First_name, String Last_name, String Email, String Password ) {
-        $("#register > a").click();
+        $(By.xpath("//a[contains(text(),'Register')]")).click();
         $("#register-username-modal").setValue(Username);
         $("#register-first-modal").setValue(First_name);
         $("#register-last-modal").setValue(Last_name);

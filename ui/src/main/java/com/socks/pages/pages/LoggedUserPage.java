@@ -50,5 +50,9 @@ public class LoggedUserPage {
         return $(By.xpath("//h4[contains(text(),'Register')]"));
     }
 
+    public SelenideElement logOutBtn(){
+        return $("#logout > a");
+    }
+
 
 }

@@ -24,6 +24,16 @@ public class MainPageLoginTest extends BaseUITest {
     private UserApiServices userApiServices = new UserApiServices();
 
     @Test
+    public void canNotLoginWithWrongCreds() {
+        MainPage.open().loginAs("Lora", "123");
+        LoggedUserPage loggedUserPage = new LoggedUserPage();
+        loggedUserPage.customerLogin().shouldHave(Condition.text("Customer login"));
+        loggedUserPage.alert().shouldHave(Condition.text("Invalid login credentials."));
+        loggedUserPage.loginField().shouldBe(Condition.not(Condition.empty));
+        loggedUserPage.passwordField().shouldBe(Condition.not(Condition.empty));
+    }
+
+    @Test
     public void userCanLoginWithValidCred() {
         //given
         PayLoadUserRegistration payLoadUser = new PayLoadUserRegistration();
@@ -48,6 +58,7 @@ public class MainPageLoginTest extends BaseUITest {
         log.info("ASSERT shouldHave Condition text We love socks!");
         loggedUserPage.existContent().should(Condition.exist);
         log.info("ASSERT shouldHave Condition exist");
+        loggedUserPage.logoutBtn().click();
 
     }
 
@@ -61,17 +72,8 @@ public class MainPageLoginTest extends BaseUITest {
         loggedUserPage.weLoveSockElement().shouldHave(Condition.text("We love socks!"));
         loggedUserPage.weLoveSockElement().shouldHave(Condition.visible);
         loggedUserPage.existContent().should(Condition.exist);
+        loggedUserPage.logoutBtn().click();
 
-    }
-
-    @Test
-    public void canNotLoginWithWrongCreds() {
-        MainPage.open().loginAs("dsfsdf", "123");
-        LoggedUserPage loggedUserPage = new LoggedUserPage();
-       // loggedUserPage.customerLogin().shouldHave(Condition.text("Customer login"));
-        loggedUserPage.alert().shouldHave(Condition.text("Invalid login credentials."));
-      //  loggedUserPage.loginField().shouldBe(Condition.not(Condition.empty));
-       // loggedUserPage.passwordField().shouldBe(Condition.not(Condition.empty));
     }
 
 
@@ -84,6 +86,7 @@ public class MainPageLoginTest extends BaseUITest {
         loggedUserPage.weLoveSockElement().shouldHave(Condition.text("We love socks!"));
         loggedUserPage.weLoveSockElement().shouldHave(Condition.visible);
         loggedUserPage.existContent().should(Condition.exist);
+        loggedUserPage.logoutBtn().click();
     }
 
     @Test
@@ -91,16 +94,10 @@ public class MainPageLoginTest extends BaseUITest {
         MainPage.open().loginAs("    ", "         ");
         LoggedUserPage loggedUserPage = new LoggedUserPage();
         loggedUserPage.alert().shouldHave(Condition.text("Invalid login credentials."));
-      //  loggedUserPage.loginField().shouldBe(Condition.not(Condition.empty));
-      //  loggedUserPage.passwordField().shouldBe(Condition.not(Condition.empty));
-       // loggedUserPage.customerLogin().shouldHave(Condition.text("Customer login"));
+        loggedUserPage.loginField().shouldBe(Condition.not(Condition.empty));
+        loggedUserPage.passwordField().shouldBe(Condition.not(Condition.empty));
+        loggedUserPage.customerLogin().shouldHave(Condition.text("Customer login"));
     }
-
-
-
-
-
-
 
 
 }
