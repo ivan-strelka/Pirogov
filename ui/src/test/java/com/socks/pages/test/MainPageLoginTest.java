@@ -31,6 +31,7 @@ public class MainPageLoginTest extends BaseUITest {
         loggedUserPage.alert().shouldHave(Condition.text("Invalid login credentials."));
         loggedUserPage.loginField().shouldBe(Condition.not(Condition.empty));
         loggedUserPage.passwordField().shouldBe(Condition.not(Condition.empty));
+
     }
 
     @Test
