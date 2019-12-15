@@ -92,6 +92,7 @@ public class MainPageLoginTest extends BaseUITest {
         LoggedUserPage loggedUserPage = new LoggedUserPage();
         loggedUserPage.alert().shouldHave(Condition.text("Invalid login credentials."));
         loggedUserPage.loginField().shouldBe(Condition.not(Condition.empty));
+        loggedUserPage.loginField().shouldBe(Condition.not(Condition.empty));
         loggedUserPage.passwordField().shouldBe(Condition.not(Condition.empty));
         loggedUserPage.customerLogin().shouldHave(Condition.text("Customer login"));
     }
