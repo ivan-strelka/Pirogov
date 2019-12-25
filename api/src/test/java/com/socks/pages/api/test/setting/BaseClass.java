@@ -1,6 +1,6 @@
-package com.socks.api.test.setting;
+package com.socks.pages.api.test.setting;
 
-import com.socks.api.ProjectConfig;
+import com.socks.pages.api.ProjectConfig;
 import io.restassured.RestAssured;
 import lombok.extern.slf4j.Slf4j;
 import org.aeonbits.owner.ConfigFactory;

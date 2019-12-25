@@ -1,4 +1,4 @@
-package com.socks.api.payload;
+package com.socks.pages.api.payload;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,9 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.ILoggerFactory;
 
-
-
 import javax.annotation.Generated;
+
 @Slf4j
 public class PayLoadUserRegistration {
 
@@ -21,7 +20,15 @@ public class PayLoadUserRegistration {
     @JsonProperty("username")
     private String username;
 
+    @JsonProperty("lastname")
+    private String lastname;
+
+    @JsonProperty("firstname")
+    private String firstname;
+
+
     public String getPassword() {
+
         return password;
     }
 
@@ -45,6 +52,24 @@ public class PayLoadUserRegistration {
         this.username = username;
     }
 
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getFirstname() {
+
+        return firstname;
+    }
+
+    public void setFirstname(String firstname)
+    {
+        this.firstname = firstname;
+    }
+
     @Override
     public String toString() {
         return
@@ -52,6 +77,8 @@ public class PayLoadUserRegistration {
                         "password = '" + password + '\'' +
                         ",email = '" + email + '\'' +
                         ",username = '" + username + '\'' +
+                        ",firstname = '" + firstname + '\'' +
+                        ",lastname = '" + lastname + '\'' +
                         "}";
     }
 

@@ -1,4 +1,4 @@
-package com.socks.api.sevices;
+package com.socks.pages.api.sevices;
 
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;

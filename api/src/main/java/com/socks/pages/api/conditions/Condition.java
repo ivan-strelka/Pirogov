@@ -1,4 +1,4 @@
-package com.socks.api.conditions;
+package com.socks.pages.api.conditions;
 
 import io.restassured.response.Response;
 

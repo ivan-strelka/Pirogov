@@ -1,7 +1,7 @@
-package com.socks.api.sevices;
+package com.socks.pages.api.sevices;
 
-import com.socks.api.assertions.AssertableResponse;
-import com.socks.api.payload.PayLoadUserRegistration;
+import com.socks.pages.api.assertions.AssertableResponse;
+import com.socks.pages.api.payload.PayLoadUserRegistration;
 import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 

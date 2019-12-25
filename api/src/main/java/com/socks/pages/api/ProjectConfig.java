@@ -1,4 +1,4 @@
-package com.socks.api;
+package com.socks.pages.api;
 
 
 import org.aeonbits.owner.Config;

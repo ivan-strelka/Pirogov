@@ -1,10 +1,10 @@
-package com.socks.api.test;
+package com.socks.pages.api.test;
 
-import com.socks.api.conditions.Conditions;
-import com.socks.api.conditions.StatusCodeCondition;
-import com.socks.api.payload.PayLoadUserRegistration;
-import com.socks.api.sevices.UserApiServices;
-import com.socks.api.test.setting.BaseClass;
+import com.socks.pages.api.conditions.Conditions;
+import com.socks.pages.api.conditions.StatusCodeCondition;
+import com.socks.pages.api.payload.PayLoadUserRegistration;
+import com.socks.pages.api.sevices.UserApiServices;
+import com.socks.pages.api.test.setting.BaseClass;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
