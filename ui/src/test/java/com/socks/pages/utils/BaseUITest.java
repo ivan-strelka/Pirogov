@@ -13,7 +13,6 @@ public class BaseUITest {
         Configuration.browserSize = "1200x700";
         Configuration.baseUrl = "http://157.245.169.246";
         Configuration.timeout = 10000;
-
         Selenide.clearBrowserCookies();
 
     }

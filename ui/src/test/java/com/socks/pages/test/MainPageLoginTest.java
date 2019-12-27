@@ -48,13 +48,13 @@ public class MainPageLoginTest extends BaseUITest {
         LoggedUserPage loggedUserPage = new LoggedUserPage();
         loggedUserPage.customerLogin().shouldHave(Condition.text("Customer login"));
         loggedUserPage.logoutBtn().shouldHave(Condition.text("Logout"));
-        log.info("ASSERT shouldHave Condition text Logout");
+
         loggedUserPage.userName().shouldHave(Condition.text("Logged in as"));
-        log.info("ASSERT shouldHave Condition text Logged in as");
+
         loggedUserPage.weLoveSockElement().shouldHave(Condition.text("We love socks!"));
-        log.info("ASSERT shouldHave Condition text We love socks!");
+
         loggedUserPage.existContent().should(Condition.exist);
-        log.info("ASSERT shouldHave Condition exist");
+
         loggedUserPage.logoutBtn().click();
 
     }
